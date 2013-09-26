@@ -13,9 +13,13 @@ define([
         if (response.status === 'connected') {
             getMusicChart(response.authResponse.accessToken);
         } else if (response.status === 'not_authorized') {
-            FB.login();
+            FB.login(function(response) {
+                    // handle the response
+            }, {scope: 'user_actions.music,read_stream'});
         } else {
-            FB.login();
+            FB.login(function(response) {
+                    // handle the response
+            }, {scope: 'user_actions.music,read_stream'});
         }
       });
     };
