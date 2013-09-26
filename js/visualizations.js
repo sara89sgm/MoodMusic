@@ -5,7 +5,7 @@ define([
 
     var exports = {},
 
-    getData = function() {
+    getData = function(callback) {
 	  
   	},
 
