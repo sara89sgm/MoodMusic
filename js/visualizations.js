@@ -1,13 +1,24 @@
 /* Manage the visualization of the data using chart.js */
+define([
+], function () {
+    'use strict';
 
-var Visualization = {
-  getData: function() {
+    var exports = {},
+
+    getData = function() {
 	  
-  },
+  	},
 
-  showData: function() {
-  	
-  }
+  	showData = function() {
+
+  	};
+
+   
+    exports.init = function () {
+        
+    }
 
 
-}
+    return exports;
+
+});

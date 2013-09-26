@@ -6,13 +6,20 @@
 <script>
 Parse.initialize("9tE2hkQ1zmy40ej6kCNu6UcFyyLSvSKigoWtkXcq", "dmnGxARP28FwR26caZoTR8KPzsLlEq6nCDNZIC0y");
 </script>
-<script src="Chart.min.js"></script>
+
 	<title>MoodMusic</title>
 	
 </head>
 
 <body>
 
+<script src="js/lib/Chart.min.js"></script>
+<script src ="js/lib/require.js"></script>
+<script>   
+	require(['js/main'], function (Main) {
+		Main.init();
+	});
+</script>
 </body>
 
 
