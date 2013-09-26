@@ -6,6 +6,7 @@ define([
    var exports = {},
 
    exports.showChart = function(data) {
+      console.log(data);
       var ctx = $("#myChart").get(0).getContext("2d");
       //This will get the first returned node in the jQuery collection.
       var myNewChart = new Chart(ctx).Line(data,options);
