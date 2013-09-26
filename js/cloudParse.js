@@ -6,15 +6,16 @@ define([
    var exports = {};
 
    exports.getMusicGraphData = function(authToken,callback) {
-      $.ajax({
-         type: "POST",
-         url: "https://api.parse.com/1/functions/graphData",
-         data: {'oauth_token': authToken},
-         success: function (data) {
-            console.log("YAY");
-            callback(data);
-         }
-        });
+    Parse.Cloud.run('graphData', {'oauth_token': authToken}, {
+      success: function(result) {
+        console.log("YAY");
+        console.log(result);
+        callback(result);
+      },
+      error: function(error) {
+      }
+    });
+      
    };
 
    
