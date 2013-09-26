@@ -18,30 +18,22 @@ Parse.initialize("9tE2hkQ1zmy40ej6kCNu6UcFyyLSvSKigoWtkXcq", "dmnGxARP28FwR26caZ
 	<canvas id="myChart" width="400" height="400"></canvas>
 
 	<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    // init the FB JS SDK
-    FB.init({
-      appId      : '124421614395186',                        // App ID from the app dashboard
-      channelUrl : 'http://moodmusic.parseapp.com/channel.html', // Channel file for x-domain comms
-      status     : true,                                 // Check Facebook Login status
-      xfbml      : true                                  // Look for social plugins on the page
-    });
 
-  // Load the SDK asynchronously
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
 
 <script src="js/lib/jquery-2.0.3.min.js"></script>
 <script src="js/lib/Chart.min.js"></script>
 <script src ="js/lib/require.js"></script>
 <script>   
+require.config({
+  shim: {
+    'facebook' : {
+      export: 'FB'
+    }
+  },
+  paths: {
+    'facebook': '//connect.facebook.net/en_US/all'
+  }
+})
 	require(['js/main'], function (Main) {
 		Main.init();
 	});

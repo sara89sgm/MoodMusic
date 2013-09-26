@@ -8,9 +8,10 @@ define([
    exports.getMusicGraphData = function(authToken,callback) {
       $.ajax({
          type: "POST",
-         url: url,
-         data: {'authToken': authToken},
+         url: "https://api.parse.com/1/functions/graphData",
+         data: {'oauth_token': authToken},
          success: function (data) {
+            console.log("YAY");
             callback(data);
          }
         });

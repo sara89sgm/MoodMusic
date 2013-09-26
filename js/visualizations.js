@@ -3,7 +3,7 @@ define([
 ], function () {
    'use strict';
 
-   var exports = {},
+   var exports = {};
 
    exports.showChart = function(data) {
       console.log(data);
