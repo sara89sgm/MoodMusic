@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Mood Music": {
+            "applicationId": "9tE2hkQ1zmy40ej6kCNu6UcFyyLSvSKigoWtkXcq", 
+            "masterKey": "dQmlq6wQpoHyRJA2vIQSBVweeiPOKdlLZh7Fa3uP"
+        }, 
+        "_default": {
+            "link": "Mood Music"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.12"
+    }
+}
