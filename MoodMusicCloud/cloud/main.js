@@ -22,7 +22,9 @@ Parse.Cloud.define("graphData", function(request, response) {
 	        .then(getAudioSummary(echoNestId))
 	        	.then(function(data) {
 	        		console.log(data);
-	        		
+	        		response.success({
+						listen_data: [[0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.2, 0.4, 0.6], [0.1, 0.2, 0.3],],
+    				});
 	        	});
 
 
