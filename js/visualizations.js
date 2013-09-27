@@ -40,6 +40,22 @@ define([
         }
       }
 
+
+      function compare (a,b) {
+        if (a[0] < b[0]) {
+          return -1;
+        }
+        if (a[0] > b[0]) {
+          return 1;
+        }
+        return 0;
+      }
+
+      happy.sort(compare);
+      dance.sort(compare);
+      energy.sort(compare);
+      mood.sort(compare);
+
       // Generate fake data
       var s = 1247982210000;
       var gap = 864000000;
