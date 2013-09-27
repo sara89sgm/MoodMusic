@@ -10,7 +10,7 @@
     <title>MoodMusic</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -19,7 +19,20 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
     <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 	<script>
 		Parse.initialize("9tE2hkQ1zmy40ej6kCNu6UcFyyLSvSKigoWtkXcq", "dmnGxARP28FwR26caZoTR8KPzsLlEq6nCDNZIC0y");
@@ -28,6 +41,94 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container-fluid">
+						 <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a> <a href="#" class="brand">Music Mood</a>
+						<div class="nav-collapse collapse navbar-responsive-collapse">
+							<ul class="nav">
+								<li class="active">
+									<a href="#">Home</a>
+								</li>
+								
+							</ul>
+							
+						</div>
+						
+					</div>
+				</div>
+				
+			</div>
+			<div class="carousel slide" id="carousel-843467">
+				<ol class="carousel-indicators">
+					<li class="active" data-slide-to="0" data-target="#carousel-843467">
+					</li>
+					<li data-slide-to="1" data-target="#carousel-843467">
+					</li>
+					<li data-slide-to="2" data-target="#carousel-843467">
+					</li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img alt="" src="img/facebook.jpg" width="1390" height="428px">
+						<div class="carousel-caption">
+							<h4>
+								Music Mood
+							</h4>
+							<p>
+								Are you happy? Are you stress? Tell us what you listen and we will tell you who you are!
+							</p>
+						</div>
+					</div>
+					<div class="item" height="500">
+						<iframe scrolling="no" frameborder="1" allowTransparency="true" src="http://www.deezer.com/en/plugins/player?autoplay=false&playlist=true&width=1370&height=450&cover=true&type=album&id=6463675&title=&app_id=103141" width="1370" height="450px"></iframe>
+						<div class="carousel-caption">
+							<h4>
+								Music of every moment of your life
+							</h4>
+							<p>
+								Just because we all have smething embarrased in our music history
+							</p>
+						</div>
+					</div>
+					<div class="item" height="500">
+						<img alt="mood music" src="img/moodmusic.png" width="1390" height="350px">
+						<div class="carousel-caption">
+							<h4>
+								Mood and music
+							</h4>
+							<p>
+								The image shows the relation between the different genre, type of music and your mood.
+							</p>
+						</div>
+					</div>
+				</div> <a data-slide="prev" href="#carousel-843467" class="left carousel-control">‹</a> <a data-slide="next" href="#carousel-843467" class="right carousel-control">›</a>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					<h3>
+						Music Mood
+					</h3>
+					<p>
+						Every songs is a moment of your life</small>
+					</p> <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+				</div>
+				<div class="span6">
+						<div id="container" style="width:100%; height:400px;"></div>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span12">
+					<div id="mood_container" style="width:100%; height:400px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
     <div class="navbar-wrapper">
       <div class="container">
 
@@ -199,8 +300,6 @@
     </div><!-- /.container -->
 
 
-
-
 	<div id="fb-root"></div>
 
 
@@ -223,15 +322,14 @@ require.config({
 	});
 </script>
 
-<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../assets/js/jquery.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/holder.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/lib/scripts.js"></script>
   </body>
 </html>
 
