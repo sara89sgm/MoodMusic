@@ -1,16 +1,18 @@
 Parse.Cloud.define("graphData", function(request, response) {
 
     var url = 'https://graph.facebook.com/me/music.listens?fields=data%2Cstart_time&access_token=' + request.params.oauth_token;
-    console.log(url);
+    //console.log(url);
 
     // Get listens from graph.
     Parse.Cloud.httpRequest({
 	url: url,
 	success: function(httpResponse) {
+		console.log(httpResponse);
 		var tracks = httpResponse.data;
 		var result = [];
 	    for (var i = 0; i < tracks.length; i++)
-	        var song = data[i];
+	        var song = tracks[i];
+	    	console.log(song);
 	        url = song.data.song.url;
 	        urlParam = url.split("/");
 	        idSong = urlParam[urlParam.length - 1];
@@ -20,7 +22,9 @@ Parse.Cloud.define("graphData", function(request, response) {
 	        .then(getAudioSummary(echoNestId))
 	        	.then(function(data) {
 	        		console.log(data);
+	        		
 	        	});
+
 
     	
 	},
@@ -30,9 +34,7 @@ Parse.Cloud.define("graphData", function(request, response) {
     });
 
 
-    response.success({
-	listen_data: [[0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.1, 0.2, 0.3], [0.2, 0.4, 0.6], [0.1, 0.2, 0.3],],
-    });
+    
 
 });
 
