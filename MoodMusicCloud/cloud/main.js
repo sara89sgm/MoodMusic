@@ -29,9 +29,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 	        			.then(
 	        				//Success
 	        				function(object) {
-	        					console.log(data333);
 		        					//console.log(object.data.response.songs[0].audio_summary);
-		        					console.log(track);
 		        					var result = {'analysis': {
 		        									'happiness': object.data.response.songs[0].audio_summary.valence,
 		        									'energy': object.data.response.songs[0].audio_summary.energy,
@@ -40,6 +38,8 @@ Parse.Cloud.define("graphData", function(request, response) {
 		        									'time_stamp': songData.time_stamp
 		        								};
 		        					console.log(result);
+		        					results.push(result);
+
 		        		
 		        				
 		        			},
@@ -47,7 +47,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 		        				console.log("error");
 		        				console.log(error);
 		        			}
-		        		,{data333: songData});
+		        		);
 	        		}
     				
 			  	},
