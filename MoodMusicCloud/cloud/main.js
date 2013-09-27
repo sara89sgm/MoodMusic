@@ -7,7 +7,7 @@ Parse.Cloud.define("graphData", function(request, response) {
     Parse.Cloud.httpRequest({
 	url: url,
 	success: function(httpResponse) {
-		
+
 		var tracks = httpResponse.data.data;
 		var results = [];
 		//console.log(tracks);
@@ -15,7 +15,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 	    for (var i = 0; i < tracks.length; i++){
 	        var track = tracks[i];
 	        url = track.data.song.url;
-	        
+
 	        urlParam = url.split("/");
 	        idSong = urlParam[urlParam.length - 1];
 	        var songData = {'app':track.application.name,
@@ -38,10 +38,15 @@ Parse.Cloud.define("graphData", function(request, response) {
 		        									'time_stamp': songData.time_stamp
 		        								};
 		        					console.log(result);
+<<<<<<< HEAD
 		        					results.push(result);
 
 		        		
 		        				
+=======
+
+
+>>>>>>> d40cafa38e9b097536845c7389e6fa6ac55582a5
 		        			},
 		        			function(error){
 		        				console.log("error");
@@ -49,7 +54,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 		        			}
 		        		);
 	        		}
-    				
+
 			  	},
 			  	function(error) {
 
@@ -57,7 +62,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 			  	});
 	    }
 
-    	
+
 	},
 	error: function(httpResponse) {
 	    console.error('Request failed with code ' + httpResponse.status);
@@ -89,7 +94,7 @@ var getEchoNestId = function(songData){
     });
 
     return promise;
-}; 
+};
 
 
 
@@ -100,7 +105,7 @@ var getAudioSummary = function(echoNestId){
 	var url="http://developer.echonest.com/api/v4/song/profile?api_key=MXG5OCMN63QJ1C5OM&format=json&id="+echoNestId+"&bucket=audio_summary";
 	url=encodeURI(url);
 
-	                
+
 	var promise = Parse.Cloud.httpRequest({
 		url: url,
 		/*success: function(httpResponse) {
