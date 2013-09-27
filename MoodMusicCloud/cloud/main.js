@@ -9,6 +9,7 @@ Parse.Cloud.define("graphData", function(request, response) {
 	success: function(httpResponse) {
 		
 		var tracks = httpResponse.data.data;
+		var results = [];
 		//console.log(tracks);
 		//console.log(tracks[0]);
 	    for (var i = 0; i < tracks.length; i++){
@@ -22,13 +23,14 @@ Parse.Cloud.define("graphData", function(request, response) {
 	        var audio_summary_data = getEchoNestId(songData)
 	        .then(
 	        	function(object) {
-	        		console.log("Success");
-	        		console.log(object.data.response.track);
-    				getAudioSummary(object.data.response.track["song_id"])
+	        		if(object.data.response.status.message === 'Success'){
+
+	        			getAudioSummary(object.data.response.track["song_id"])
 	        			.then(
 	        				//Success
 	        				function(object) {
-		        					console.log(object.data);
+		        					console.log(object.data.response.songs[0].audio_summary);
+		        					console.log(track);
 		        		
 		        				
 		        			},
@@ -36,7 +38,9 @@ Parse.Cloud.define("graphData", function(request, response) {
 		        				console.log("error");
 		        				console.log(error);
 		        			}
-		        			);
+		        		);
+	        		}
+    				
 			  	},
 			  	function(error) {
 
