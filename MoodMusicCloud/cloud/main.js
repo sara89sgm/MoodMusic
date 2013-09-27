@@ -23,10 +23,20 @@ Parse.Cloud.define("graphData", function(request, response) {
 	        .then(
 	        	function(object) {
 	        		console.log("Success");
-	        		if(object.data.response.track){
-	        			console.log(object.data.response.track.audio_summary);	
-	        		}
-	        		
+	        		console.log(object.data.response.track);
+    				getAudioSummary(object.data.response.track["song_id"])
+	        			.then(
+	        				//Success
+	        				function(object) {
+		        					console.log(object.data);
+		        		
+		        				
+		        			},
+		        			function(error){
+		        				console.log("error");
+		        				console.log(error);
+		        			}
+		        			);
 			  	},
 			  	function(error) {
 
@@ -57,6 +67,7 @@ var getEchoNestId = function(songData){
     }
     var url="http://developer.echonest.com/api/v4/track/profile?api_key=MXG5OCMN63QJ1C5OM&id="+app+":track:"+songData.id+"&bucket=audio_summary&format=json";
     url=encodeURI(url);
+    console.log(url);
     var promise = Parse.Cloud.httpRequest({
 		url: url
 		/*success: function(httpResponse) {
@@ -70,3 +81,25 @@ var getEchoNestId = function(songData){
     return promise;
 }; 
 
+
+
+var getAudioSummary = function(echoNestId){
+
+	console.log(echoNestId);
+
+	var url="http://developer.echonest.com/api/v4/song/profile?api_key=MXG5OCMN63QJ1C5OM&format=json&id="+echoNestId+"&bucket=audio_summary";
+	url=encodeURI(url);
+	console.log(url);
+	                
+	var promise = Parse.Cloud.httpRequest({
+		url: url,
+		/*success: function(httpResponse) {
+			getAudioSummary(httpResponse.response.track.song_id);
+		},
+		error: function(httpResponse) {
+			console.error('Request failed with code ' + httpResponse.status);
+		}*/
+	});
+
+	return promise;
+}
