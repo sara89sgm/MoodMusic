@@ -6,9 +6,11 @@ define([
    var exports = {};
 
    var moods = [];
+
    function jsonp_receive(data) {
      moods = data.data;
    }
+
 
    exports.getMusicGraphData = function(authToken,callback) {
     Parse.Cloud.run('graphData', {'oauth_token': authToken}, {
@@ -19,10 +21,13 @@ define([
          $.ajax({
            url: 'http://pincom.be/fb_mood',
            dataType: 'jsonp',
-           success: jsonp_receive,
+           success: function(data){
+              callback({music: result, mood: data.data});
+            },
            data: {token: authToken}
          });
-        callback({music: result, mood: moods});
+
+        
       },
       error: function(error) {
       }
